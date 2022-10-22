@@ -1,0 +1,38 @@
+canvas {
+  width = 800
+  height = 700
+}
+
+forall Set x {
+    x.icon = Circle {
+        -- center : (?, ?)
+        r : ?
+        -- r : 100.0
+        strokeWidth : 0.0
+    }
+
+    x.text = Equation {
+        string : x.label
+    }
+
+    c = 20.0
+
+    d = 20.0
+
+    x.containFn = ensure contains(x.icon, x.text)
+    ensure contains(x.icon, x.text)
+    encourage sameCenter(x.text, x.icon)
+
+    ensure lessThan(20, x.icon.r)
+
+    layer x.text above x.icon
+}
+
+forall Set x; Set y
+where IsSubset(x, y) {
+    ensure smallerThan(x.icon, y.icon)
+    ensure disjoint(y.text, x.icon)
+
+    ensure contains(y.icon, x.icon, 5.0)
+    layer x.icon above y.icon
+}

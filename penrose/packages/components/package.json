@@ -1,0 +1,48 @@
+{
+  "name": "@penrose/components",
+  "version": "1.3.0",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "module": "dist/index.es.js",
+  "scripts": {
+    "watch": "vite build --watch",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' vite build",
+    "build-decls": "tsc",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "turbo": {
+    "build": "out: [dist/*.css, dist/*.js, dist/*.js.map]",
+    "build-decls": "out: [dist/*.ts, dist/*.ts.map]",
+    "build-storybook": "deps: [^build], out: [storybook/static/**]",
+    "watch": "cache: false, deps: [^build]"
+  },
+  "peerDependencies": {
+    "@penrose/core": "1.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "dependencies": {
+    "@monaco-editor/react": "^4.0.11",
+    "monaco-editor": "^0.31.0",
+    "monaco-vim": "^0.3.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.0",
+    "@penrose/core": "1.3.0",
+    "@storybook/addon-actions": "^6.5.4",
+    "@storybook/addon-essentials": "^6.5.4",
+    "@storybook/addon-interactions": "^6.5.4",
+    "@storybook/addon-links": "^6.5.4",
+    "@storybook/builder-vite": "^0.1.35",
+    "@storybook/react": "^6.5.4",
+    "@storybook/testing-library": "^0.0.11",
+    "@types/react": "^17.0.33",
+    "@types/react-dom": "^17.0.10",
+    "@vitejs/plugin-react": "^1.0.7",
+    "babel-loader": "^8.2.5",
+    "typescript": "^4.4.4",
+    "vite": "^2.7.2"
+  }
+}
